@@ -1,0 +1,165 @@
+/* =============================
+   ESTILOS GENERALES
+============================= */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+}
+
+
+/* =============================
+   BARRA DE NAVEGACIÓN
+============================= */
+
+nav {
+    background-color: #f59477;
+    /* Naranja asociado a comida */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+
+/* Menú */
+
+ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    
+}
+
+li {
+    margin-left: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    /* Color de ítems no seleccionados */
+    padding: 14px 10px;
+    transition: 0.3s;
+}
+
+a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+
+/* Ítem activo */
+
+.active {
+    background-color: white;
+    color: #ff7043;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+
+/* BARRA DE BÚSQUEDA */
+
+.input-group .form-control {
+    height: 35px;
+    /* altura más grande */
+    font-size: 18px;
+    /* letra más grande */
+    border-radius: 50px 0 0 50px;
+    padding-left: 20px;
+    margin-left: 40pc;
+}
+
+.input-group .btn {
+    height: 37px;
+    font-size: 20px;
+    border-radius: 0 50px 50px 0;
+    margin-left: 10px
+}
+
+
+/* =============================
+   SECCIÓN DESTACADOS
+============================= */
+
+.destacados {
+    padding: 40px 10%;
+    text-align: center;
+}
+
+.destacados h2 {
+    color: #ff7043;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.card p {
+    color: #555;
+    font-size: 0.9em;
+}
+
+
+/* =============================
+   PIE DE PÁGINA
+============================= */
+
+footer {
+    background-color: #ff7043;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

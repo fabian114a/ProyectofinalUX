@@ -15,40 +15,18 @@ body {
 
 nav {
     background-color: #f59477;
-    /* Naranja asociado a comida */
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    flex-wrap: wrap;  /* Permite que los elementos se apilen en pantallas pequeñas */
 }
-
-
-/* Logo */
-
-.logo {
-    display: flex;
-    align-items: center;
-    color: white;
-    font-size: 1.5em;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.logo-img {
-    height: 40px;
-    margin-right: 10px;
-}
-
-
-/* Menú */
 
 ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
-    margin-left: 30px;
-
 }
 
 li {
@@ -58,7 +36,6 @@ li {
 a {
     text-decoration: none;
     color: white;
-    /* Color de ítems no seleccionados */
     padding: 14px 10px;
     transition: 0.3s;
 }
@@ -68,9 +45,7 @@ a:hover {
     border-radius: 5px;
 }
 
-
 /* Ítem activo */
-
 .active {
     background-color: white;
     color: #ff7043;
@@ -78,43 +53,24 @@ a:hover {
     border-radius: 5px;
 }
 
-
-/* BARRA DE BÚSQUEDA */
-
-.input-group .form-control {
-    height: 35px;
-    /* altura más grande */
-    font-size: 18px;
-    /* letra más grande */
-    border-radius: 50px 0 0 50px;
-    padding-left: 20px;
+/* Menú en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    li {
+        margin: 10px 0;
+    }
+    
+    .auth {
+        margin-left: 0;
+    }
+    .auth a {
+        margin-top: 10px;
+    }
 }
-
-.input-group .btn {
-    height: 37px;
-    font-size: 20px;
-    border-radius: 0 50px 50px 0;
-    margin-left: 10px
-}
-
-
-/* Botones login/registro */
-
-.auth a {
-    margin-left: 15px;
-    padding: 10px 15px;
-    border: 1px solid white;
-    border-radius: 5px;
-}
-.auth {
-    margin-left: auto; /* Esto empuja los botones a la derecha */
-}
-.auth a:hover {
-    background-color: white;
-    color: #ff7043;
-}
-
-
 
 /* =============================
    SECCIÓN HERO (bienvenida)
@@ -131,13 +87,16 @@ a:hover {
     width: 85%;
     max-width: 1100px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;  /* Permite que los elementos se apilen en pantallas pequeñas */
 }
 
-
-/* Texto */
-
-.hero-card .hero-text {
+.hero-text {
     max-width: 60%;
+}
+
+.hero-img {
+    max-width: 320px;
+    margin-top: 20px;
 }
 
 .hero-card h1 {
@@ -150,9 +109,6 @@ a:hover {
     margin: 15px 0;
     color: #444;
 }
-
-
-/* Botones */
 
 .hero-buttons .btn-main,
 .hero-buttons .btn-sec {
@@ -184,14 +140,28 @@ a:hover {
     color: white;
 }
 
-
 /* Imagen */
-
 .hero-card .hero-img img {
     max-width: 320px;
     border-radius: 15px;
 }
 
+/* Hacer la sección hero responsiva */
+@media screen and (max-width: 768px) {
+    .hero-card {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .hero-text {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .hero-img img {
+        max-width: 100%;
+    }
+}
 
 /* =============================
    SECCIÓN DESTACADOS
@@ -236,6 +206,19 @@ a:hover {
     font-size: 0.9em;
 }
 
+/* Hacer las tarjetas responsivas */
+@media screen and (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    
+    .card {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
 
 /* =============================
    PIE DE PÁGINA
@@ -257,4 +240,82 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Hacer que el pie de página sea responsivo */
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 15px;
+    }
+    
+    footer .social {
+        display: block;
+        margin-top: 10px;
+    }
+    
+    footer .social a {
+        display: inline-block;
+        margin: 5px 0;
+    }
+}
+
+/* =============================
+   SECCIÓN DE BÚSQUEDA (si la tienes)
+============================= */
+
+.input-group .form-control {
+    height: 35px;
+    font-size: 18px;
+    border-radius: 50px 0 0 50px;
+    padding-left: 20px;
+}
+
+.input-group .btn {
+    height: 37px;
+    font-size: 20px;
+    border-radius: 0 50px 50px 0;
+    margin-left: 10px;
+}
+
+/* =============================
+   Botones login/registro
+============================= */
+
+.auth a {
+    margin-left: 15px;
+    padding: 10px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.auth {
+    margin-left: auto;
+}
+
+.auth a:hover {
+    background-color: white;
+    color: #ff7043;
+}
+
+/* =============================
+   Final: Asegurarse de que todo es responsivo
+============================= */
+
+/* Si la pantalla es menor de 480px, hacer ajustes adicionales */
+@media screen and (max-width: 480px) {
+    .hero-card h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-card p {
+        font-size: 1.2em;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .menu {
+        display: none;  /* Esconder el menú en pantallas muy pequeñas */
+    }
 }

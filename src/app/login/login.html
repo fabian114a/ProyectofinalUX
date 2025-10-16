@@ -1,0 +1,98 @@
+<nav>
+  <a routerLink="/home" class="logo">
+    <img src="imagenes/logo.png" alt="ReceFacil" class="logo-img">
+    <span>ReceFacil</span>
+  </a>
+
+  <ul class="menu">
+    <li><a routerLink="/home" routerLinkActive="active">Inicio</a></li>
+  </ul>
+
+  <div class="auth">
+    <a routerLink="/login" class="btn">Iniciar sesión</a>
+    <a routerLink="/signup" class="btn">Registro</a>
+  </div>
+</nav>
+
+<main>
+  <div class="container" [ngClass]="{'right-panel-active': isSignUp()}">
+    <!-- Formulario de Registro -->
+    <div class="form-container sign-up-container" *ngIf="isSignUp()">
+      <form (ngSubmit)="onRegister(registerForm)" #registerForm="ngForm">
+        <h1>Crea tu Cuenta</h1>
+
+        <div class="social-container">
+          <a href="#" class="social">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social">
+            <i class="fab fa-google" id="red"></i>
+          </a>
+          <a href="#" class="social">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+
+        <span>o usa tu email para registrarte</span>
+
+        <input type="text" placeholder="Nombre" name="name" ngModel />
+        <input type="email" placeholder="Email" name="email" ngModel />
+        <input type="password" placeholder="Contraseña" name="password" ngModel />
+
+        <button type="submit" id="lila">Registrar</button>
+      </form>
+    </div>
+
+    <!-- Formulario de Login -->
+    <div class="form-container sign-in-container" *ngIf="!isSignUp()">
+      <form (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm">
+        <h1>Iniciar Sesión</h1>
+        <div class="social-container">
+          <a href="#" class="social">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social">
+            <i class="fab fa-google" id="red"></i>
+          </a>
+          <a href="#" class="social">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+
+        <span>o usa tu email</span>
+
+        <input type="email" placeholder="Email" name="email" ngModel />
+        <input type="password" placeholder="Contraseña" name="password" ngModel />
+
+        <button type="submit">Iniciar sesión</button>
+      </form>
+    </div>
+
+    <!-- Panel de superposición que cambia entre registro y login -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>¡Bienvenido!</h1>
+          <p>a ReceFacil</p>
+          <button class="ghost" (click)="toggleSignInSignUp()">Inicia sesión</button>
+        </div>
+
+        <div class="overlay-panel overlay-right">
+          <h1>Hola!!!</h1>
+          <p>¿No tienes cuenta en ReceFacil?</p>
+          <button class="ghost" (click)="toggleSignInSignUp()">Regístrate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 ReceFacil. Todos los derechos reservados.</p>
+  <p>Contacto: <a href="mailto:recefacil@gmail.com">recefacil@gmail.com</a> | Tel: +57 3107164163</p>
+  <div class="social">
+    <a href="#">Facebook</a> |
+    <a href="#">Instagram</a> |
+    <a href="#">YouTube</a>
+  </div>
+</footer>

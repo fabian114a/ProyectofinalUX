@@ -1,33 +1,48 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';  // Necesario para ngClass y otras directivas comunes
-import { FormsModule } from '@angular/forms';    // Necesario para ngForm
-import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, FormsModule,RouterLink],  // Asegúrate de que los módulos estén importados
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './login.html',
   styleUrls: ['./login.css']
 })
-
-   
 export class Login {
-  // Definimos signal para gestionar el estado reactivo de 'isSignUp'
-  isSignUp = signal(false);  // false: formulario de login, true: formulario de registro
+  isSignUp = signal(false);
+  mensaje = signal('');
 
-  // Método para alternar entre los formularios de login y registro
+  constructor(private api: ApiService, private router: Router) {}
+
   toggleSignInSignUp() {
-    this.isSignUp.set(!this.isSignUp());  // Cambiar el valor de 'isSignUp'
+    this.isSignUp.set(!this.isSignUp());
   }
 
-  // Método para manejar el formulario de registro
-  onRegister(registerForm: any) {
-    console.log(registerForm.value);  // Lógica para registrar
+  onRegister(form: any) {
+    this.api.register(form.value).subscribe({
+      next: (res: any) => this.mensaje.set(res.message),
+      error: (err: any) => this.mensaje.set(err.error.message || 'Error al registrar'),
+    });
   }
 
-  // Método para manejar el formulario de inicio de sesión
-  onLogin(loginForm: any) {
-    console.log(loginForm.value);  // Lógica para iniciar sesión
+  onLogin(form: any) {
+    this.api.login(form.value).subscribe({
+      next: (res: any) => {
+        if (res.success) {
+          this.mensaje.set(res.message);
+          // ✅ Guarda el usuario en localStorage
+          localStorage.setItem('usuario', JSON.stringify(form.value));
+          // ✅ Redirige al home
+          this.router.navigate(['/home']);
+        } else {
+          this.mensaje.set('Credenciales incorrectas');
+        }
+      },
+      error: (err: any) => {
+        this.mensaje.set(err.error.message || 'Error al iniciar sesión');
+      },
+    });
   }
-  
 }

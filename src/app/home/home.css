@@ -19,8 +19,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    flex-wrap: wrap;
-    /* Permite que los elementos se apilen en pantallas pequeñas */
+    flex-wrap: wrap;  /* Permite que los elementos se apilen en pantallas pequeñas */
 }
 
 ul {
@@ -46,9 +45,7 @@ a:hover {
     border-radius: 5px;
 }
 
-
 /* Ítem activo */
-
 .active {
     background-color: white;
     color: #ff7043;
@@ -56,9 +53,7 @@ a:hover {
     border-radius: 5px;
 }
 
-
 /* Menú en pantallas pequeñas */
-
 @media screen and (max-width: 768px) {
     ul {
         flex-direction: column;
@@ -68,6 +63,7 @@ a:hover {
     li {
         margin: 10px 0;
     }
+    
     .auth {
         margin-left: 0;
     }
@@ -75,41 +71,6 @@ a:hover {
         margin-top: 10px;
     }
 }
-
-.usuario-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background-color: #fff8f0;
-    border-radius: 20px;
-    padding: 8px 15px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease;
-}
-
-.usuario-container:hover {
-    transform: translateY(-2px);
-}
-
-.usuario {
-    font-size: 16px;
-    color: #333;
-}
-
-.btn.cerrar {
-    background-color: #ff7043;
-    border: none;
-    color: white;
-    border-radius: 12px;
-    padding: 6px 12px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn.cerrar:hover {
-    background-color: #e64a19;
-}
-
 
 /* =============================
    SECCIÓN HERO (bienvenida)
@@ -126,8 +87,7 @@ a:hover {
     width: 85%;
     max-width: 1100px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap;
-    /* Permite que los elementos se apilen en pantallas pequeñas */
+    flex-wrap: wrap;  /* Permite que los elementos se apilen en pantallas pequeñas */
 }
 
 .hero-text {
@@ -180,31 +140,28 @@ a:hover {
     color: white;
 }
 
-
 /* Imagen */
-
 .hero-card .hero-img img {
     max-width: 320px;
     border-radius: 15px;
 }
 
-
 /* Hacer la sección hero responsiva */
-
 @media screen and (max-width: 768px) {
     .hero-card {
         flex-direction: column;
         padding: 20px;
     }
+    
     .hero-text {
         text-align: center;
         max-width: 100%;
     }
+    
     .hero-img img {
         max-width: 100%;
     }
 }
-
 
 /* =============================
    SECCIÓN DESTACADOS
@@ -249,21 +206,19 @@ a:hover {
     font-size: 0.9em;
 }
 
-
 /* Hacer las tarjetas responsivas */
-
 @media screen and (max-width: 768px) {
     .cards {
         flex-direction: column;
         width: 100%;
         gap: 10px;
     }
+    
     .card {
         width: 90%;
         margin: 0 auto;
     }
 }
-
 
 /* =============================
    PIE DE PÁGINA
@@ -287,26 +242,25 @@ footer a:hover {
     text-decoration: underline;
 }
 
-
 /* Hacer que el pie de página sea responsivo */
-
 @media screen and (max-width: 768px) {
     footer {
         padding: 15px;
     }
+    
     footer .social {
         display: block;
         margin-top: 10px;
     }
+    
     footer .social a {
         display: inline-block;
         margin: 5px 0;
     }
 }
 
-
 /* =============================
-   SECCIÓN DE BÚSQUEDA 
+   SECCIÓN DE BÚSQUEDA (si la tienes)
 ============================= */
 
 .input-group .form-control {
@@ -322,7 +276,6 @@ footer a:hover {
     border-radius: 0 50px 50px 0;
     margin-left: 10px;
 }
-
 
 /* =============================
    Botones login/registro
@@ -344,26 +297,68 @@ footer a:hover {
     color: #ff7043;
 }
 
-
 /* =============================
    Final: Asegurarse de que todo es responsivo
 ============================= */
 
-
 /* Si la pantalla es menor de 480px, hacer ajustes adicionales */
-
 @media screen and (max-width: 480px) {
     .hero-card h1 {
         font-size: 2.5em;
     }
+
     .hero-card p {
         font-size: 1.2em;
     }
+
     .card {
         width: 100%;
     }
+
     .menu {
-        display: none;
-        /* Esconder el menú en pantallas muy pequeñas */
+        display: none;  /* Esconder el menú en pantallas muy pequeñas */
     }
+}
+
+
+.usuario-container {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espacio entre el texto del usuario y el botón */
+}
+
+
+
+/* =============================
+   BOTÓN CERRAR SESIÓN
+============================= */
+
+.btn.cerrar {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 15px;
+}
+
+.btn.cerrar:hover {
+    background-color: white;
+    color: #ff7043;
+    border-color: #ff7043;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .btn.cerrar {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+a {
+  cursor: pointer;
 }
